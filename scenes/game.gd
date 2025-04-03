@@ -9,8 +9,13 @@ extends Node2D
 @onready var game_over = %GameOver
 
 var points: int = 0
+var weapons
 
 func _ready() -> void:
+	weapons = TextDatabase.load_database("res://cards/CustomCards.gd", "res://cards/Weapons.cfg")
+	for entry in weapons.get_array():
+		print("Weapon: ", entry.name)
+	
 	deck.connect("draw_card", _on_draw_card)
 
 func _on_draw_card():
