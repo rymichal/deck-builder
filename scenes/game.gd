@@ -28,11 +28,14 @@ func _on_draw_card():
 	var select_card = randi() % 2
 	var new_card_res = cards.get_array()[select_card]
 	
+	var card_res = CardData.create(cards.get_array()[select_card])
+	
+	
 	# build card data
-	new_card.call_deferred("set_card_data", new_card_res.name, new_card_res.description, new_card_res.cost, new_card_res.image)
+	new_card.call_deferred("set_card_data", card_res.title, card_res.description, card_res.cost, card_res.image)
 	
 	# score cards + handle lose conditions
-	points += new_card_res.cost
+	points += card_res.cost
 	points_label.text = str(points)
 	if points > 21:
 		_handle_bust()

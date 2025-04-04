@@ -7,8 +7,3 @@ func _schema_initialize():
 	
 func _postprocess_entry(entry: Dictionary):
 	entry.image = load("res://sprites/" + entry.image + ".png")
-	
-#@export var title: String
-#@export var description: String
-#@export var cost: int
-#@export var image: Texture

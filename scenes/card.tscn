@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dap8nsvv58jgo"]
+[gd_scene load_steps=9 format=3 uid="uid://dap8nsvv58jgo"]
 
 [ext_resource type="Script" uid="uid://bg4ajnlruyri8" path="res://scenes/card.gd" id="1_6ligt"]
 [ext_resource type="Texture2D" uid="uid://du3qut1q4hgl2" path="res://sprites/card_base.png" id="1_kg30u"]
-[ext_resource type="Resource" uid="uid://b0vdmnfqo74we" path="res://cards/attack_card.tres" id="2_8w5pg"]
 [ext_resource type="Texture2D" uid="uid://c382q2gthd5y" path="res://sprites/mana_slot.png" id="2_sy11y"]
 [ext_resource type="Theme" uid="uid://pn5c8x7eiul1" path="res://theme/card_theme.tres" id="3_6ligt"]
 [ext_resource type="FontFile" uid="uid://3dxeqlsm06pa" path="res://sprites/MemoryPro.ttf" id="4_8w5pg"]
@@ -18,7 +17,6 @@ size = Vector2(77, 122.5)
 [node name="Card" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_6ligt")
-card_resource = ExtResource("2_8w5pg")
 
 [node name="BaseCard" type="Sprite2D" parent="."]
 texture = ExtResource("1_kg30u")

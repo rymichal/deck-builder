@@ -1,7 +1,5 @@
 class_name Card extends Node2D
 
-@export var card_resource: CardData
-
 @onready var area_2d = %Area2D
 @onready var name_label = %Name
 @onready var description_label = %Description

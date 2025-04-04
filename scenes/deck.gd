@@ -4,6 +4,8 @@ extends Node2D
 
 signal draw_card
 
+var cards: Array[CardData]
+
 func _ready(): 
 	area_2d.input_event.connect(_on_card_clicked)
 
