@@ -1,12 +1,14 @@
 extends TextDatabase
 
-enum Element {FIRE, ICE, THUNDER}
-
 func _schema_initialize():
-	add_mandatory_property("icon", TYPE_STRING)
-	add_valid_property("element", TYPE_STRING)
-	add_valid_property("attack", TYPE_INT)
-
+	add_mandatory_property("description", TYPE_STRING)
+	add_mandatory_property("cost", TYPE_INT)
+	add_mandatory_property("image", TYPE_STRING)
+	
 func _postprocess_entry(entry: Dictionary):
-	entry.element = Element[entry.element]
-	entry.icon = load("res://" + entry.icon + ".png")
+	entry.image = load("res://sprites/" + entry.image + ".png")
+	
+#@export var title: String
+#@export var description: String
+#@export var cost: int
+#@export var image: Texture
