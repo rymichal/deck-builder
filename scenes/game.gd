@@ -14,11 +14,11 @@ var cards
 func _ready() -> void:
 	cards = TextDatabase.load_database("res://cards/CustomCards.gd", "res://cards/Cards.cfg")
 	for entry in cards.get_array():
-		print("Card: ", entry.name)
+		print("Card Title: ", entry.name)
 		print("Description: ", entry.description)
 		print("cost: ", entry.cost)
 	
-	deck.connect("draw_card", _on_draw_card)
+	deck.connect("draw_card_sg", _on_draw_card)
 
 func _on_draw_card():
 	var card_scn = preload("res://scenes/card.tscn")
@@ -28,7 +28,7 @@ func _on_draw_card():
 	var select_card = randi() % 2
 	var new_card_res = cards.get_array()[select_card]
 	
-	var card_res = CardData.create(cards.get_array()[select_card])
+	var card_res = CardData.create_from_db(cards.get_array()[select_card])
 	
 	
 	# build card data
@@ -47,5 +47,5 @@ func _on_draw_card():
 	
 func _handle_bust():
 	game_over.show()
-	if deck.is_connected("draw_card", _on_draw_card):
-		deck.disconnect("draw_card", _on_draw_card)
+	if deck.is_connected("draw_card_sg", _on_draw_card):
+		deck.disconnect("draw_card_sg", _on_draw_card)

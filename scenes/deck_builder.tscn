@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciihbrit7cyn"]
+[gd_scene load_steps=4 format=3 uid="uid://ciihbrit7cyn"]
 
 [ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/deck.tscn" id="1_rb6hk"]
+[ext_resource type="Script" uid="uid://cesfayejjp4p0" path="res://scenes/deck_builder.gd" id="1_wmg8o"]
 [ext_resource type="Theme" uid="uid://dxhnvctvt3p07" path="res://theme/gui.tres" id="2_wmg8o"]
 
 [node name="deck_builder" type="Node2D"]
+script = ExtResource("1_wmg8o")
 
 [node name="Deck" parent="." instance=ExtResource("1_rb6hk")]
 position = Vector2(99, 142)
@@ -34,28 +36,28 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="card count attack" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="card_count_attack" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card count attack"]
+[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card_count_attack"]
 layout_mode = 2
 theme = ExtResource("2_wmg8o")
 text = "card key"
 
-[node name="number" type="Label" parent="PanelContainer/VBoxContainer/card count attack"]
+[node name="attack_count" type="Label" parent="PanelContainer/VBoxContainer/card_count_attack"]
 layout_mode = 2
 
-[node name="card count def" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="card_count_def" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card count def"]
+[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card_count_def"]
 layout_mode = 2
 theme = ExtResource("2_wmg8o")
 text = "card key"
 
-[node name="number" type="Label" parent="PanelContainer/VBoxContainer/card count def"]
+[node name="def_count" type="Label" parent="PanelContainer/VBoxContainer/card_count_def"]
 layout_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
@@ -72,11 +74,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer"]
+[node name="att_add" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "add attck"
 
-[node name="Button2" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer"]
+[node name="att_remove" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "remove attack"
 
@@ -85,10 +87,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer2"]
+[node name="def_add" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "add def"
 
-[node name="Button2" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer2"]
+[node name="def_remove" type="Button" parent="PanelContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "remove def"

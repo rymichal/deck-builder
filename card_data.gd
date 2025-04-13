@@ -1,14 +1,11 @@
-class_name CardData
+class_name CardData extends RefCounted
 
 var title: String
 var description: String
 var cost: int
 var image: Texture
-
-func create_card_from_db(card_db: Dictionary):
-	pass
 	
-static func create(card_db: Dictionary) -> CardData:
+static func create_from_db(card_db: Dictionary) -> CardData:
 	# Check that the dictionary has the required keys
 	if not card_db.has("name") or not card_db.has("description") or not card_db.has("cost") or not card_db.has("image"):
 		push_error("Dictionary is missing required keys")
