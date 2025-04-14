@@ -13,29 +13,26 @@ var cards
 
 func _ready() -> void:
 	cards = TextDatabase.load_database("res://cards/CustomCards.gd", "res://cards/Cards.cfg")
-	for entry in cards.get_array():
-		print("Card Title: ", entry.name)
-		print("Description: ", entry.description)
-		print("cost: ", entry.cost)
 	
 	deck.connect("draw_card_sg", _on_draw_card)
+	deck.initalize_default_cards()
 
 func _on_draw_card():
 	var card_scn = preload("res://scenes/card.tscn")
 	var new_card = card_scn.instantiate()
 	
-	# get random card draw
-	var select_card = randi() % 2
-	var new_card_res = cards.get_array()[select_card]
+	if deck.cards.size() < 0:
+		# invalid draw
+		return
+		
+	var drawn_card_id = deck.draw_card()
+	var drawn_card = CardData.create_from_db(cards.get_array()[drawn_card_id])
 	
-	var card_res = CardData.create_from_db(cards.get_array()[select_card])
-	
-	
-	# build card data
-	new_card.call_deferred("set_card_data", card_res.title, card_res.description, card_res.cost, card_res.image)
+	# set card view; we have to defer this call as its not guanteed to be created yet. 
+	new_card.call_deferred("set_card_data", drawn_card.title, drawn_card.description, drawn_card.cost, drawn_card.image)
 	
 	# score cards + handle lose conditions
-	points += card_res.cost
+	points += drawn_card.cost
 	points_label.text = str(points)
 	if points > 21:
 		_handle_bust()

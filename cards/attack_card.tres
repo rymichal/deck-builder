@@ -1,12 +1,7 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://b0vdmnfqo74we"]
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://b0vdmnfqo74we"]
 
-[ext_resource type="Texture2D" uid="uid://ctljr3vkdpoiw" path="res://sprites/attack_card_image.png" id="1_604j2"]
 [ext_resource type="Script" uid="uid://c24sgy0vpqx8d" path="res://card_data.gd" id="2_w44wb"]
 
 [resource]
 script = ExtResource("2_w44wb")
-title = "Attack"
-description = "+1 attack"
-cost = 5
-image = ExtResource("1_604j2")
 metadata/_custom_type_script = "uid://c24sgy0vpqx8d"

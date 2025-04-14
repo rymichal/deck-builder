@@ -1,5 +1,6 @@
 class_name CardData extends RefCounted
 
+var id: int
 var title: String
 var description: String
 var cost: int
@@ -12,6 +13,7 @@ static func create_from_db(card_db: Dictionary) -> CardData:
 		return null
 
 	var instance = CardData.new()
+	instance.id = card_db["id"]
 	instance.title = card_db["name"]
 	instance.description = card_db["description"]
 	instance.cost = card_db["cost"]

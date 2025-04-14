@@ -26,34 +26,34 @@ func _ready() -> void:
 
 func _on_att_add_pressed():
 	var card_data = CardData.create_from_db(card_db.get_array()[0]) # Assuming the first card is the attack card
-	deck.add_card(card_data)
+	deck.add_card(card_data.id)
 	update_card_counts()
 
 func _on_att_remove_pressed():
 	var card_data = CardData.create_from_db(card_db.get_array()[0]) # Assuming the first card is the attack card
-	deck.remove_card(card_data)
+	deck.remove_card(card_data.id)
 	update_card_counts()
 
 func _on_def_add_pressed():
 	var card_data = CardData.create_from_db(card_db.get_array()[1]) # Assuming the second card is the defense card
-	deck.add_card(card_data)
+	deck.add_card(card_data.id)
 	update_card_counts()
 
 func _on_def_remove_pressed():
 	var card_data = CardData.create_from_db(card_db.get_array()[1]) # Assuming the second card is the defense card
-	deck.remove_card(card_data)  #this would never work. we should pass in what card we awnt remove
+	deck.remove_card(card_data.id)  #this would never work. we should pass in what card we awnt remove
 	update_card_counts()
 
 func update_card_counts():
 	var attack_count_num = 0
 	var def_count_num = 0
 	
-	for card in deck.cards:
-		if card.title == card_db.get_array()[0].name:
+	for card_id in deck.cards:
+		if card_id == card_db.get_array()[0].id:
 			attack_count_num += 1
-		elif card.title == card_db.get_array()[1].name:
+		elif card_id == card_db.get_array()[1].id:
 			def_count_num += 1
 			
-	points_label.text = str(deck.cards.length
+	points_label.text = str(deck.cards.size())
 	attack_count.text = str(attack_count_num)
 	def_count.text = str(def_count_num)
