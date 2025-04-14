@@ -21,14 +21,32 @@ script = ExtResource("1_6ligt")
 [node name="BaseCard" type="Sprite2D" parent="."]
 texture = ExtResource("1_kg30u")
 
-[node name="CostDisplay" type="Node2D" parent="."]
+[node name="PopularityDisplay" type="Node2D" parent="."]
+visible = false
 
-[node name="CostDisplaySprite" type="Sprite2D" parent="CostDisplay"]
+[node name="CostDisplaySprite" type="Sprite2D" parent="PopularityDisplay"]
 position = Vector2(33, -58)
 texture = ExtResource("2_sy11y")
 
-[node name="CardCost" type="Label" parent="CostDisplay"]
+[node name="CardPopularity" type="Label" parent="PopularityDisplay"]
 unique_name_in_owner = true
+offset_left = 30.0
+offset_top = -66.0
+offset_right = 37.0
+offset_bottom = -51.0
+theme = ExtResource("3_6ligt")
+text = "3"
+label_settings = SubResource("LabelSettings_nvopj")
+metadata/_edit_use_anchors_ = true
+
+[node name="IncomeDisplay" type="Node2D" parent="."]
+visible = false
+
+[node name="CostDisplaySprite" type="Sprite2D" parent="IncomeDisplay"]
+position = Vector2(33, -58)
+texture = ExtResource("2_sy11y")
+
+[node name="CardPopularity" type="Label" parent="IncomeDisplay"]
 offset_left = 30.0
 offset_top = -66.0
 offset_right = 37.0

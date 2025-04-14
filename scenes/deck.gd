@@ -11,7 +11,7 @@ func _ready():
 	area_2d.connect("input_event", _on_card_clicked)
 	
 func initalize_default_cards():
-	cards = [0, 0, 0, 1, 1, 1];
+	cards = [0, 0, 1, 1, 1, 2, 2];
 	shuffle()
 
 func _on_card_clicked(viewport: Viewport, event: InputEvent, shape_index: int):

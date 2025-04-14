@@ -5,10 +5,18 @@ extends Node2D
 @export var card_spacing: int = 200
 
 @onready var deck = $Deck
-@onready var points_label = %points_label
 @onready var game_over = %GameOver
 
-var points: int = 0
+@onready var trouble_label: Label = %trouble_label
+@onready var money_label: Label = %money_label
+@onready var pop_label: Label = %pop_label
+
+var stats = {
+	"popularity": 0,
+	"money": 0,
+	"trouble": 0
+}
+
 var cards
 
 func _ready() -> void:
@@ -16,6 +24,16 @@ func _ready() -> void:
 	
 	deck.connect("draw_card_sg", _on_draw_card)
 	deck.initalize_default_cards()
+
+func update_stats(drawn_card: CardData) -> void:
+	
+	stats.trouble += drawn_card.trouble
+	stats.money += drawn_card.money
+	stats.popularity += drawn_card.popularity
+
+	trouble_label.text = str("Trouble: ", stats.trouble)
+	money_label.text = str("Money: ", stats.money)
+	pop_label.text = str("Popularity: ", stats.popularity)
 
 func _on_draw_card():
 	var card_scn = preload("res://scenes/card.tscn")
@@ -29,12 +47,12 @@ func _on_draw_card():
 	var drawn_card = CardData.create_from_db(cards.get_array()[drawn_card_id])
 	
 	# set card view; we have to defer this call as its not guanteed to be created yet. 
-	new_card.call_deferred("set_card_data", drawn_card.title, drawn_card.description, drawn_card.cost, drawn_card.image)
+	new_card.call_deferred("set_card_data", drawn_card.name, drawn_card.description, drawn_card.cost, drawn_card.image)
 	
 	# score cards + handle lose conditions
-	points += drawn_card.cost
-	points_label.text = str(points)
-	if points > 21:
+	update_stats(drawn_card)
+	
+	if stats.trouble > 2:
 		_handle_bust()
 	
 	# place card in scene. 

@@ -3,7 +3,7 @@ class_name Card extends Node2D
 @onready var area_2d = %Area2D
 @onready var name_label = %Name
 @onready var description_label = %Description
-@onready var card_cost_label = %CardCost
+@onready var card_popularity_label: Label = %CardPopularity
 @onready var image = %Image
 
 var card_name: String = "Card Name"
@@ -19,7 +19,7 @@ func _ready():
 func set_card_data(_name, _description, _cost, _image):
 	name_label.text = _name
 	description_label.text = _description
-	card_cost_label.text = str(_cost)
+	card_popularity_label.text = str(_cost)
 	image.set_texture(_image)
 
 func _on_card_clicked(viewport: Viewport, event: InputEvent, shape_index: int):
