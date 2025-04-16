@@ -11,8 +11,11 @@ func _ready():
 	area_2d.connect("input_event", _on_card_clicked)
 	
 func initalize_default_cards():
-	cards = [0, 0, 1, 1, 1, 2, 2];
+	cards = [0, 0, 1, 1, 0, 2, 2];
 	shuffle()
+	
+func get_number_of_cards_remaining() -> int:
+	return cards.size()
 
 func _on_card_clicked(viewport: Viewport, event: InputEvent, shape_index: int):
 	var event_is_mouse_click: bool = (
