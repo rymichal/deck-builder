@@ -39,12 +39,15 @@ func remove_card(card_id_to_remove: int) -> void:
 	shuffle()
 
 func draw_card() -> int:
-	if cards.size() > 0:
+	if !is_empty():
 		var drawn_card_id = cards.pop_front()
 		_cards_removed.append(drawn_card_id)
 		return drawn_card_id
 	else:
 		return -1  # return invalid
 
+func is_empty() -> bool:
+	return cards.size() < 1
+	
 func shuffle():
 	cards.shuffle()

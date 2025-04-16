@@ -38,12 +38,10 @@ func _on_draw_card():
 	var card_scn = preload("res://scenes/card.tscn")
 	var new_card = card_scn.instantiate()
 	
-	if deck.cards.size() < 0:
-		# invalid draw
+	if deck.is_empty():
 		return
 		
 	var drawn_card_id = deck.draw_card()
-	print(deck.get_number_of_cards_remaining())
 	var drawn_card = CardData.create_from_db(cards_db.get_array()[drawn_card_id])
 	
 	# set card view; we have to defer this call as its not guanteed to be created yet. 
