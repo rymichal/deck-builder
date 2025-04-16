@@ -1,9 +1,10 @@
 extends Node2D
 
-@onready var att_add = $PanelContainer2/HBoxContainer/VBoxContainer/att_add
-@onready var att_remove = $PanelContainer2/HBoxContainer/VBoxContainer/att_remove
-@onready var def_add = $PanelContainer2/HBoxContainer/VBoxContainer2/def_add
-@onready var def_remove = $PanelContainer2/HBoxContainer/VBoxContainer2/def_remove
+#@onready var att_add = $PanelContainer2/HBoxContainer/VBoxContainer/att_add
+#@onready var att_remove = $PanelContainer2/HBoxContainer/VBoxContainer/att_remove
+#@onready var def_add = $PanelContainer2/HBoxContainer/VBoxContainer2/def_add
+#@onready var def_remove = $PanelContainer2/HBoxContainer/VBoxContainer2/def_remove
+
 @onready var deck = $Deck
 
 #labels: 
@@ -12,17 +13,18 @@ extends Node2D
 @onready var attack_count = $"PanelContainer/VBoxContainer/card_count_attack/attack_count"
 @onready var def_count = $"PanelContainer/VBoxContainer/card_count_def/def_count"
 
+@onready var friend = $HBoxContainer/VBoxContainer/friend
+@onready var wild_buddy = $"HBoxContainer/VBoxContainer2/wild buddy"
+@onready var rich_friend = $"HBoxContainer/VBoxContainer3/rich friend"
+
 var card_db
 
 func _ready() -> void:
 	card_db = TextDatabase.load_database("res://cards/CustomCards.gd", "res://cards/Cards.cfg")
-	for entry in card_db.get_array():
-		print("Card Title: ", entry.name)
-		
-	att_add.connect("pressed", _on_att_add_pressed)
-	att_remove.connect("pressed", _on_att_remove_pressed)
-	def_add.connect("pressed", _on_def_add_pressed)
-	def_remove.connect("pressed", _on_def_remove_pressed)
+	#att_add.connect("pressed", _on_att_add_pressed)
+	#att_remove.connect("pressed", _on_att_remove_pressed)
+	#def_add.connect("pressed", _on_def_add_pressed)
+	#def_remove.connect("pressed", _on_def_remove_pressed)
 
 func _on_att_add_pressed():
 	var card_data = CardData.create_from_db(card_db.get_array()[0]) # Assuming the first card is the attack card

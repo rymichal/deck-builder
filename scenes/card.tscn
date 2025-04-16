@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dap8nsvv58jgo"]
 
-[ext_resource type="Script" uid="uid://bg4ajnlruyri8" path="res://scenes/card.gd" id="1_6ligt"]
+[ext_resource type="Script" uid="uid://bg4ajnlruyri8" path="res://scenes/scripts/card.gd" id="1_6ligt"]
 [ext_resource type="Texture2D" uid="uid://du3qut1q4hgl2" path="res://sprites/card_base.png" id="1_kg30u"]
 [ext_resource type="Texture2D" uid="uid://c382q2gthd5y" path="res://sprites/mana_slot.png" id="2_sy11y"]
 [ext_resource type="Theme" uid="uid://pn5c8x7eiul1" path="res://theme/card_theme.tres" id="3_6ligt"]

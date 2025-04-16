@@ -32,7 +32,7 @@ func _ready() -> void:
 	deck.connect("draw_card_sg", _on_draw_card)
 	deck.initalize_default_cards()
 	
-	restart_btn.connect("button_down", _restart_game)
+	restart_btn.connect("button_down", restart_game)
 
 func _on_draw_card():
 	var card_scn = preload("res://scenes/card.tscn")
@@ -65,7 +65,7 @@ func _handle_bust():
 	if deck.is_connected("draw_card_sg", _on_draw_card):
 		deck.disconnect("draw_card_sg", _on_draw_card)
 		
-func _restart_game() -> void:
+func restart_game() -> void:
 	deck.initalize_default_cards()
 	reset_stats()
 	number_of_cards = 0
