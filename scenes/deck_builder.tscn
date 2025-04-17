@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciihbrit7cyn"]
 
-[ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/deck.tscn" id="1_rb6hk"]
+[ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/playable_deck.tscn" id="1_rb6hk"]
 [ext_resource type="Script" uid="uid://cesfayejjp4p0" path="res://scenes/scripts/deck_builder.gd" id="1_wmg8o"]
 [ext_resource type="Theme" uid="uid://dxhnvctvt3p07" path="res://theme/gui.tres" id="2_wmg8o"]
 [ext_resource type="PackedScene" uid="uid://dap8nsvv58jgo" path="res://scenes/card.tscn" id="4_nx1ff"]
@@ -13,53 +13,54 @@ visible = false
 position = Vector2(100, 130)
 scale = Vector2(2, 2)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="card_list_gui" type="PanelContainer" parent="."]
+visible = false
 offset_left = 941.0
 offset_top = 3.0
 offset_right = 1277.0
 offset_bottom = 462.0
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="card_list_gui"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
 layout_mode = 2
 
-[node name="points_title" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="points_title" type="Label" parent="card_list_gui/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_wmg8o")
 text = "Deck # of cards: "
 
-[node name="points_label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="points_label" type="Label" parent="card_list_gui/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="card_count_attack" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="card_count_attack" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card_count_attack"]
+[node name="key" type="Label" parent="card_list_gui/VBoxContainer/card_count_attack"]
 layout_mode = 2
 theme = ExtResource("2_wmg8o")
 text = "card key"
 
-[node name="attack_count" type="Label" parent="PanelContainer/VBoxContainer/card_count_attack"]
+[node name="attack_count" type="Label" parent="card_list_gui/VBoxContainer/card_count_attack"]
 layout_mode = 2
 
-[node name="card_count_def" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="card_count_def" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="key" type="Label" parent="PanelContainer/VBoxContainer/card_count_def"]
+[node name="key" type="Label" parent="card_list_gui/VBoxContainer/card_count_def"]
 layout_mode = 2
 theme = ExtResource("2_wmg8o")
 text = "card key"
 
-[node name="def_count" type="Label" parent="PanelContainer/VBoxContainer/card_count_def"]
+[node name="def_count" type="Label" parent="card_list_gui/VBoxContainer/card_count_def"]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

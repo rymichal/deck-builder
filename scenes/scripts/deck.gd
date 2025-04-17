@@ -1,18 +1,11 @@
-extends Node2D
-
-@onready var area_2d = %Area2D
-
-signal draw_card_sg
+class_name Deck
 
 var cards: Array[int] = []
 var _cards_removed: Array[int] = []
 
-func _ready():
-	area_2d.connect("input_event", _on_card_clicked)
-	
 func initalize_default_cards():
-	cards = [0, 0, 1, 1, 0, 2, 2];
-	shuffle()
+	cards = [0, 0, 1, 1, 1, 2, 2];
+	cards.shuffle()
 	
 func get_number_of_cards_remaining() -> int:
 	return cards.size()
@@ -42,8 +35,7 @@ func draw_card() -> int:
 	if !is_empty():
 		var drawn_card_id = cards.pop_front()
 		_cards_removed.append(drawn_card_id)
-		if is_empty():
-			hide()
+		# TODO: tell playable deck to hide? 
 		return drawn_card_id
 	else:
 		return -1  # return invalid
@@ -52,4 +44,4 @@ func is_empty() -> bool:
 	return cards.size() < 1
 	
 func shuffle():
-	cards.shuffle()
+	initalize_default_cards()
