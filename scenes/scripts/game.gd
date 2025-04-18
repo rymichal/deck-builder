@@ -88,6 +88,7 @@ func _day_begin():
 
 func _add_card_to_deck(card_id: int):
 	deck.add_card(card_id)
+	deck.shuffle()
 	_display_deck_to_diag()
 
 func _del_card_to_deck(card_id: int):

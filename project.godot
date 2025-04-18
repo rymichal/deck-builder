@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="deck-builder"
+run/main_scene="uid://lehbwd7iw4ha"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
