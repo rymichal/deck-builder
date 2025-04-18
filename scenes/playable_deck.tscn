@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3vw3phj2xdey"]
 
-[ext_resource type="Script" uid="uid://dv70ltafyuft2" path="res://scenes/deck.gd" id="1_6rnap"]
-[ext_resource type="Texture2D" uid="uid://c6gh3agbl8sei" path="res://sprites/card_back_optimized.png" id="2_6rnap"]
+[ext_resource type="Script" uid="uid://c3x0n7i5ua5he" path="res://scenes/scripts/playable_deck.gd" id="1_sc74x"]
+[ext_resource type="Texture2D" uid="uid://c6gh3agbl8sei" path="res://sprites/card_back_optimized.png" id="2_0ls74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdhao"]
 size = Vector2(77, 110)
 
-[node name="Deck" type="Node2D"]
-script = ExtResource("1_6rnap")
+[node name="playable_deck" type="Node2D"]
+script = ExtResource("1_sc74x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6rnap")
+texture = ExtResource("2_0ls74")
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true

@@ -1,9 +1,13 @@
 class_name CardData extends RefCounted
 
-var title: String
+var id: int
+var name: String
 var description: String
-var cost: int
 var image: Texture
+var cost: int
+var popularity: int
+var money: int
+var trouble: int
 	
 static func create_from_db(card_db: Dictionary) -> CardData:
 	# Check that the dictionary has the required keys
@@ -12,9 +16,15 @@ static func create_from_db(card_db: Dictionary) -> CardData:
 		return null
 
 	var instance = CardData.new()
-	instance.title = card_db["name"]
+	instance.id = card_db["id"]
+	instance.name = card_db["name"]
+	
 	instance.description = card_db["description"]
-	instance.cost = card_db["cost"]
 	instance.image = card_db["image"]
+	
+	instance.cost = card_db["cost"]
+	instance.popularity = card_db["popularity"]
+	instance.money = card_db["money"]
+	instance.trouble = card_db["trouble"]
 
 	return instance

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0wcs5tme8ey"]
+
+[ext_resource type="Script" uid="uid://bso88kgv42qpu" path="res://scenes/scripts/play_area.gd" id="1_hk8fp"]
+[ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/playable_deck.tscn" id="2_b00k2"]
+
+[node name="play" type="Node2D"]
+script = ExtResource("1_hk8fp")
+
+[node name="playable_deck" parent="." instance=ExtResource("2_b00k2")]
+unique_name_in_owner = true
+position = Vector2(100, 130)
+scale = Vector2(2, 2)
+
+[node name="play_card_area" type="Node2D" parent="."]
+unique_name_in_owner = true

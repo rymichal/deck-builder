@@ -1,10 +1,11 @@
+# Basically a big button. 
+# Sencds draw_card_sg for another node to interpret. 
+
 extends Node2D
 
 @onready var area_2d = %Area2D
 
 signal draw_card_sg
-
-var cards: Array[CardData] = []
 
 func _ready():
 	area_2d.connect("input_event", _on_card_clicked)
@@ -17,21 +18,3 @@ func _on_card_clicked(viewport: Viewport, event: InputEvent, shape_index: int):
 	)
 	if event_is_mouse_click:
 		emit_signal("draw_card_sg")
-
-func add_card(card: CardData) -> void:
-	print("card: ", card.title)
-	cards.append(card)
-
-func remove_card(card: CardData) -> void:
-	if card in cards:
-		cards.erase(card)
-
-func draw_card() -> CardData:
-	if cards.size() > 0:
-		var drawn_card = cards.pop_front()
-		return drawn_card
-	else:
-		return null
-
-func shuffle():
-	cards.shuffle()
