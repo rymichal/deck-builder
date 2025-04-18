@@ -13,14 +13,12 @@ script = ExtResource("1_uwrxv")
 [node name="deck_builder" parent="." instance=ExtResource("3_lbhrr")]
 visible = false
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="start_end_day_btn" type="Button" parent="."]
+unique_name_in_owner = true
 offset_left = 941.0
 offset_top = 462.0
 offset_right = 1277.0
 offset_bottom = 720.0
-
-[node name="start_end_day_btn" type="Button" parent="PanelContainer"]
-layout_mode = 2
 text = "start the day"
 
 [node name="GameOverMenu" type="Control" parent="."]
@@ -90,6 +88,26 @@ layout_mode = 2
 theme = ExtResource("4_lbhrr")
 
 [node name="pop_label" type="Label" parent="scoreboard/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_lbhrr")
+
+[node name="diag" type="PanelContainer" parent="."]
+offset_left = 339.0
+offset_top = 30.0
+offset_right = 675.0
+offset_bottom = 258.0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="diag"]
+layout_mode = 2
+
+[node name="deck_id_display" type="Label" parent="diag/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_lbhrr")
+
+[node name="cards_remaining_display" type="Label" parent="diag/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_lbhrr")

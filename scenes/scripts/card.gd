@@ -11,7 +11,6 @@ var card_description: String = "Card Description"
 var card_cost: int = 1
 var card_image: Texture
 
-
 func _ready(): 
 	area_2d.input_event.connect(_on_card_clicked)
 	set_card_data(card_name, card_description, card_cost, card_image)

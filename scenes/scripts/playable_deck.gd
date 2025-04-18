@@ -1,3 +1,6 @@
+# Basically a big button. 
+# Sencds draw_card_sg for another node to interpret. 
+
 extends Node2D
 
 @onready var area_2d = %Area2D

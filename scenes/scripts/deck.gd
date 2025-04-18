@@ -35,7 +35,6 @@ func draw_card() -> int:
 	if !is_empty():
 		var drawn_card_id = cards.pop_front()
 		_cards_removed.append(drawn_card_id)
-		# TODO: tell playable deck to hide? 
 		return drawn_card_id
 	else:
 		return -1  # return invalid
