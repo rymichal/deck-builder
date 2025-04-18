@@ -14,7 +14,7 @@ var card_spacing: int = 100
 func play_card(card: CardData):
 	var card_scn = preload("res://scenes/card.tscn")
 	var new_card = card_scn.instantiate()
-	new_card.call_deferred("set_card_data", card.name, card.description, card.cost, card.image)
+	new_card.call_deferred("set_card_data", card)
 	created_cards.append(new_card)
 
 	# place card in scene. 

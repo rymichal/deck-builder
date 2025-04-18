@@ -28,21 +28,29 @@ var deck: Deck = Deck.new()
 var cards_db
 
 func _ready():
+	deck_builder.set_deck(deck)
 	play.connect("bust_sg", _set_state)
 	play.connect("verify_trouble", _verify_trouble)
 	play.deck.connect("draw_card_sg", _on_draw_card)
+	
+	deck_builder.add_card.connect(_on_add_card_to_deck)
+	deck_builder.rm_card.connect(_on_add_card_to_deck)
+	
 	start_end_day_btn.connect("button_down", _start_end_day_btn_pressed)
 	restart_btn.connect("button_down", _restart_game)
 	
 	cards_db = TextDatabase.load_database("res://cards/CustomCards.gd", "res://cards/Cards.cfg")
 	deck.initalize_default_cards()
 	_set_state(states.GAME_PLAY)
+	 
+	_display_deck_to_diag()
 	
+func _on_add_card_to_deck():
 	_display_deck_to_diag()
 	
 func _restart_game():
 	play.restart_day()
-	deck.shuffle()
+	deck.initalize_default_cards()
 	_set_state(states.GAME_PLAY)
 	_update_stats_and_labels({
 		"popularity": 0,

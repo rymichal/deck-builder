@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciihbrit7cyn"]
+[gd_scene load_steps=4 format=3 uid="uid://ciihbrit7cyn"]
 
 [ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/playable_deck.tscn" id="1_rb6hk"]
 [ext_resource type="Script" uid="uid://cesfayejjp4p0" path="res://scenes/scripts/deck_builder.gd" id="1_wmg8o"]
-[ext_resource type="Theme" uid="uid://dxhnvctvt3p07" path="res://theme/gui.tres" id="2_wmg8o"]
 [ext_resource type="PackedScene" uid="uid://dap8nsvv58jgo" path="res://scenes/card.tscn" id="4_nx1ff"]
 
 [node name="deck_builder" type="Node2D"]
@@ -13,117 +12,92 @@ visible = false
 position = Vector2(100, 130)
 scale = Vector2(2, 2)
 
-[node name="card_list_gui" type="PanelContainer" parent="."]
-visible = false
-offset_left = 941.0
-offset_top = 3.0
-offset_right = 1277.0
-offset_bottom = 462.0
-size_flags_horizontal = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="card_list_gui"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
-layout_mode = 2
-
-[node name="points_title" type="Label" parent="card_list_gui/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_wmg8o")
-text = "Deck # of cards: "
-
-[node name="points_label" type="Label" parent="card_list_gui/VBoxContainer/HBoxContainer"]
+[node name="card_slot_1" type="Node2D" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
+position = Vector2(75, 538)
 
-[node name="card_count_attack" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="card_slot_1"]
+offset_left = -62.0
+offset_top = -96.0
+offset_right = 61.0
+offset_bottom = 130.0
+metadata/_edit_use_anchors_ = true
 
-[node name="key" type="Label" parent="card_list_gui/VBoxContainer/card_count_attack"]
-layout_mode = 2
-theme = ExtResource("2_wmg8o")
-text = "card key"
-
-[node name="attack_count" type="Label" parent="card_list_gui/VBoxContainer/card_count_attack"]
-layout_mode = 2
-
-[node name="card_count_def" type="HBoxContainer" parent="card_list_gui/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="key" type="Label" parent="card_list_gui/VBoxContainer/card_count_def"]
-layout_mode = 2
-theme = ExtResource("2_wmg8o")
-text = "card key"
-
-[node name="def_count" type="Label" parent="card_list_gui/VBoxContainer/card_count_def"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_top = 420.0
-offset_right = 500.0
-offset_bottom = 720.0
-theme_override_constants/separation = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="friend" parent="HBoxContainer/VBoxContainer" instance=ExtResource("4_nx1ff")]
-position = Vector2(60, -97)
+[node name="card" parent="card_slot_1" instance=ExtResource("4_nx1ff")]
 scale = Vector2(1.5, 1.5)
 
-[node name="att_add" type="Button" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="add" type="Button" parent="card_slot_1"]
+offset_left = -59.0
+offset_top = 97.0
+offset_right = -17.0
+offset_bottom = 128.0
 text = "add "
+metadata/_edit_use_anchors_ = true
 
-[node name="att_remove" type="Button" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="rm" type="Button" parent="card_slot_1"]
+offset_left = -14.0
+offset_top = 97.0
+offset_right = 58.0
+offset_bottom = 128.0
 text = "remove "
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+[node name="card_slot_2" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(211, 538)
 
-[node name="wild buddy" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("4_nx1ff")]
-position = Vector2(60, -97)
+[node name="ColorRect" type="ColorRect" parent="card_slot_2"]
+offset_left = -62.0
+offset_top = -96.0
+offset_right = 61.0
+offset_bottom = 130.0
+metadata/_edit_use_anchors_ = true
+
+[node name="card" parent="card_slot_2" instance=ExtResource("4_nx1ff")]
 scale = Vector2(1.5, 1.5)
 
-[node name="def_add" type="Button" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
+[node name="add" type="Button" parent="card_slot_2"]
+offset_left = -59.0
+offset_top = 97.0
+offset_right = -17.0
+offset_bottom = 128.0
 text = "add "
+metadata/_edit_use_anchors_ = true
 
-[node name="def_remove" type="Button" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
+[node name="rm" type="Button" parent="card_slot_2"]
+offset_left = -14.0
+offset_top = 97.0
+offset_right = 58.0
+offset_bottom = 128.0
 text = "remove "
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+[node name="card_slot_3" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(343, 539)
 
-[node name="rich friend" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("4_nx1ff")]
-position = Vector2(60, -97)
+[node name="ColorRect" type="ColorRect" parent="card_slot_3"]
+offset_left = -62.0
+offset_top = -96.0
+offset_right = 61.0
+offset_bottom = 130.0
+metadata/_edit_use_anchors_ = true
+
+[node name="card" parent="card_slot_3" instance=ExtResource("4_nx1ff")]
 scale = Vector2(1.5, 1.5)
 
-[node name="def_add" type="Button" parent="HBoxContainer/VBoxContainer3"]
-layout_mode = 2
+[node name="add" type="Button" parent="card_slot_3"]
+offset_left = -59.0
+offset_top = 97.0
+offset_right = -17.0
+offset_bottom = 128.0
 text = "add "
+metadata/_edit_use_anchors_ = true
 
-[node name="def_remove" type="Button" parent="HBoxContainer/VBoxContainer3"]
-layout_mode = 2
+[node name="rm" type="Button" parent="card_slot_3"]
+offset_left = -14.0
+offset_top = 97.0
+offset_right = 58.0
+offset_bottom = 128.0
 text = "remove "
-
-[node name="Label" type="Label" parent="."]
-offset_left = 12.0
-offset_top = 512.0
-offset_right = 353.0
-offset_bottom = 556.0
-theme_override_font_sizes/font_size = 31
-text = "this doesn't work yet./ "
+metadata/_edit_use_anchors_ = true

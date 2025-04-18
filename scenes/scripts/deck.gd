@@ -1,11 +1,11 @@
-class_name Deck
+class_name Deck extends Resource
 
 var cards: Array[int] = []
 var _cards_removed: Array[int] = []
 
 func initalize_default_cards():
 	cards = [0, 0, 1, 1, 1, 2, 2];
-	cards.shuffle()
+	shuffle()
 	
 func get_number_of_cards_remaining() -> int:
 	return cards.size()
@@ -43,4 +43,4 @@ func is_empty() -> bool:
 	return cards.size() < 1
 	
 func shuffle():
-	initalize_default_cards()
+	cards.shuffle()
