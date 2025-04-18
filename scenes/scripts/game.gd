@@ -28,13 +28,12 @@ var deck: Deck = Deck.new()
 var cards_db
 
 func _ready():
-	deck_builder.set_deck(deck)
 	play.connect("bust_sg", _set_state)
 	play.connect("verify_trouble", _verify_trouble)
 	play.deck.connect("draw_card_sg", _on_draw_card)
 	
-	deck_builder.add_card.connect(_on_add_card_to_deck)
-	deck_builder.rm_card.connect(_on_add_card_to_deck)
+	deck_builder.add_card.connect(_add_card_to_deck)
+	deck_builder.del_card.connect(_del_card_to_deck)
 	
 	start_end_day_btn.connect("button_down", _start_end_day_btn_pressed)
 	restart_btn.connect("button_down", _restart_game)
@@ -87,9 +86,16 @@ func _day_end():
 func _day_begin():
 	_set_state(states.GAME_PLAY)
 
-func _on_add_card_to_deck():
+func _add_card_to_deck(card_id: int):
+	deck.add_card(card_id)
 	_display_deck_to_diag()
-	
+
+func _del_card_to_deck(card_id: int):
+	var del_found = deck.delete_card(card_id)
+	if del_found:
+		deck.shuffle()
+		_display_deck_to_diag()
+
 func _verify_trouble(trouble: int):
 	if stats.trouble > 2:
 		_set_state(states.GAME_BUST)

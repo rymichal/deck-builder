@@ -32,11 +32,13 @@ func remove_card(card_id_to_remove: int) -> void:
 			cards.erase(id)
 			break
 
-func delete_card(card_id_to_delete: int) -> void:
+# returns true if card was succesfully deleted
+func delete_card(card_id_to_delete: int) -> bool:
 	for id in cards:
 		if id == card_id_to_delete:
 			cards.erase(id)
-			break
+			return true
+	return false
 
 func draw_card() -> int:
 	if !is_empty():
