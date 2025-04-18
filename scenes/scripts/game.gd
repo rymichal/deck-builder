@@ -45,9 +45,6 @@ func _ready():
 	 
 	_display_deck_to_diag()
 	
-func _on_add_card_to_deck():
-	_display_deck_to_diag()
-	
 func _restart_game():
 	play.restart_day()
 	deck.initalize_default_cards()
@@ -70,12 +67,11 @@ func _set_state(new_state: states):
 		play.hide()
 		deck_builder.show()
 		start_end_day_btn.text = "start day"
-	elif new_state == states.GAME_BUILDING:
+	elif new_state == states.GAME_BUST:
 		## TODO: show a day failed message then change state to game_buildling in 3 seconds. 
 		game_over_menu.show()
 		
 func _start_end_day_btn_pressed():
-	print("button pressed", state)
 	if state == states.GAME_PLAY:
 		_day_end()
 	elif state == states.GAME_BUILDING:
@@ -83,7 +79,6 @@ func _start_end_day_btn_pressed():
 		
 func _day_end():
 	deck.shuffle()
-	calc_score()
 	play.restart_day()
 	_update_stats_and_labels({"trouble": 0})
 	_set_state(states.GAME_BUILDING)
@@ -92,8 +87,8 @@ func _day_end():
 func _day_begin():
 	_set_state(states.GAME_PLAY)
 
-func calc_score():
-	pass
+func _on_add_card_to_deck():
+	_display_deck_to_diag()
 	
 func _verify_trouble(trouble: int):
 	if stats.trouble > 2:
