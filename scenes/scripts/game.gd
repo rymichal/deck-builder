@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var start_end_day_btn = %start_end_day_btn
-@onready var deck_builder = $deck_builder
+@onready var store = $store
 @onready var play = $play
 @onready var restart_btn = %restart_btn
 @onready var game_over_menu = %GameOverMenu
@@ -28,12 +28,10 @@ var deck: Deck = Deck.new()
 var cards_db
 
 func _ready():
-	play.connect("bust_sg", _set_state)
-	play.connect("verify_trouble", _verify_trouble)
 	play.deck.connect("draw_card_sg", _on_draw_card)
 	
-	deck_builder.add_card.connect(_add_card_to_deck)
-	deck_builder.del_card.connect(_del_card_to_deck)
+	store.add_card.connect(_add_card_to_deck)
+	store.del_card.connect(_del_card_to_deck)
 	
 	start_end_day_btn.connect("button_down", _start_end_day_btn_pressed)
 	restart_btn.connect("button_down", _restart_game)
@@ -60,11 +58,11 @@ func _set_state(new_state: states):
 	state = new_state
 	if new_state == states.GAME_PLAY:
 		play.show()
-		deck_builder.hide()
+		store.hide()
 		start_end_day_btn.text = "end day"
 	elif new_state == states.GAME_BUILDING:
 		play.hide()
-		deck_builder.show()
+		store.show()
 		start_end_day_btn.text = "start day"
 	elif new_state == states.GAME_BUST:
 		## TODO: show a day failed message then change state to game_buildling in 3 seconds. 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da378h5ihpxkj" path="res://scenes/scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cn0wcs5tme8ey" path="res://scenes/play_area.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://ciihbrit7cyn" path="res://scenes/deck_builder.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ciihbrit7cyn" path="res://scenes/store.tscn" id="3_lbhrr"]
 [ext_resource type="Theme" uid="uid://dxhnvctvt3p07" path="res://theme/gui.tres" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
@@ -10,7 +10,7 @@ script = ExtResource("1_uwrxv")
 
 [node name="play" parent="." instance=ExtResource("2_lnu2h")]
 
-[node name="deck_builder" parent="." instance=ExtResource("3_lbhrr")]
+[node name="store" parent="." instance=ExtResource("3_lbhrr")]
 visible = false
 
 [node name="start_end_day_btn" type="Button" parent="."]

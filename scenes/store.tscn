@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ciihbrit7cyn"]
 
 [ext_resource type="PackedScene" uid="uid://d3vw3phj2xdey" path="res://scenes/playable_deck.tscn" id="1_rb6hk"]
-[ext_resource type="Script" uid="uid://cesfayejjp4p0" path="res://scenes/scripts/deck_builder.gd" id="1_wmg8o"]
+[ext_resource type="Script" uid="uid://cesfayejjp4p0" path="res://scenes/scripts/store.gd" id="1_wmg8o"]
 [ext_resource type="PackedScene" uid="uid://dap8nsvv58jgo" path="res://scenes/card.tscn" id="4_nx1ff"]
 
-[node name="deck_builder" type="Node2D"]
+[node name="store" type="Node2D"]
 script = ExtResource("1_wmg8o")
 
 [node name="Deck" parent="." instance=ExtResource("1_rb6hk")]

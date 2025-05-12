@@ -3,8 +3,6 @@ extends Node2D
 @onready var deck = $playable_deck
 @onready var played_card_area = %play_card_area
 
-signal verify_trouble
-
 var created_cards: Array[Node2D] = [] 
 var number_of_cards: int = 0
 

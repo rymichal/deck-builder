@@ -1,16 +1,11 @@
 
 TODO: 
 	
-	setup new store slots
 	store items should cost popularity or money? 
 	limit the number of playable cards on the day. use $$$ to add slots. 
-	add new cards.
-		rockstar +1 trouble; +2 money
-		hippy -1 trouble
-		* must support negative values. 
-	trouble should end the day not end the game. 
-	add win condition by collecting 3 super guests. 
-	end the day with 3 trouble instead of ending the game. 
+	setup new store slots
+	trouble should end the day not end the game. (finite # of days)
+	add win condition by collecting 3 super guests. (add star guests)
 	add cards with active effects. 
 		ex: bouncer removes a card of your choice
 		ex: barber has one time use to increase popularity of card
@@ -21,3 +16,9 @@ TODO:
 		new code to select a card with active effect and use its effect. 
 		new code to target another card with an active effect
 		
+completed: 
+	
+	add new cards.
+		rockstar +1 trouble; +2 money
+		hippy -1 trouble
+		* must support negative values. 

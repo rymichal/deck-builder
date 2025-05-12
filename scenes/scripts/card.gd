@@ -16,7 +16,6 @@ func _ready():
 	_set_card_data_from_fields(card_name, card_description, card_cost, card_image)
 	
 func _set_card_data_from_fields(_name, _description, _cost, _image):
-	print("name: ", _name)
 	name_label.text = _name
 	description_label.text = _description
 	card_popularity_label.text = str(_cost)
